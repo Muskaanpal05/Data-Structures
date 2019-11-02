@@ -62,7 +62,55 @@ class LinkedList{
 				newNode.next=pointer;
 		}
 	}
-					
+	public static void deleteAtEnd(LinkedList li)
+	{
+		Node temp=li.head;
+		if(li.head==null)
+		{
+			;
+		}
+		else if(temp.next==null)
+		{
+			li.head=null;
+		}
+		else{
+		while(temp.next.next!=null)
+		{
+			temp=temp.next;
+		}
+		temp.next=null;
+		}
+	}	
+		public static void deleteAtBeg(LinkedList li)
+		{
+			if(li.head==null)
+			{
+				;
+			}
+			else{
+			li.head=li.head.next;
+			}
+		}
+		public static void deleteAtAnyPosition(LinkedList li,int pos)
+		{
+			Node temp=li.head;
+			int position=1;
+			if(pos==1||li.head==null)
+			{
+				deleteAtBeg(li);
+			}else {
+			while(temp.next!=null && position<pos-1)
+			{
+				temp=temp.next;
+				position++;
+			}
+			if(position==pos-1)
+			{
+			temp.next=temp.next.next;
+			}
+			}
+		}
+			
 			
 	public static void print(LinkedList li)
 	{
@@ -72,6 +120,7 @@ class LinkedList{
 			System.out.println(temp+" "+temp.data+" "+temp.next);
 			temp=temp.next;
 		}
+	
 	}
 		
 		
@@ -86,9 +135,12 @@ class LinkedList{
 		insertAtEnd(li,19);
 		insertAtEnd(li,29);
 		insertAtEnd(li,59);
-		insertAtBeg(li,7);
+		/*insertAtBeg(li,7);
 		insertAtAnyPosition(li,3,69);
 		insertAtAnyPosition(li,-10,6);
+		deleteAtEnd(li);
+		deleteAtBeg(li);*/
+		deleteAtAnyPosition(li,20);
 		print(li);
 	}
 }
