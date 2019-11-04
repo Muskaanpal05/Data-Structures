@@ -104,7 +104,7 @@ class LinkedList{
 				temp=temp.next;
 				position++;
 			}
-			if(position==pos-1)
+			if(position==pos-1&&temp.next!=null)
 			{
 			temp.next=temp.next.next;
 			}
@@ -140,7 +140,7 @@ class LinkedList{
 		insertAtAnyPosition(li,-10,6);
 		deleteAtEnd(li);
 		deleteAtBeg(li);*/
-		deleteAtAnyPosition(li,20);
+		deleteAtAnyPosition(li,-8);
 		print(li);
 	}
 }
