@@ -1,5 +1,5 @@
 import java.util.*;
-class SearchAndDelete{
+class LinkedList{
 	
 	Node head;
 	static class Node{
@@ -11,7 +11,7 @@ class SearchAndDelete{
 			this.next=null;
 		}
 	}
-	public static void insert(SearchAndDelete li, int n)
+	public static void insert(LinkedList li, int n)
 	{
 		Node newNode=new Node(n);
 		if(li.head==null)
@@ -29,7 +29,7 @@ class SearchAndDelete{
 		}
 	}
 	
-	public static Node searchAndDelete(SearchAndDelete li,int value)
+	public static Node searchAndDelete(LinkedList li,int value)
 	{
 		Node temp=li.head;
 		while(temp.next!=null)
@@ -51,7 +51,7 @@ class SearchAndDelete{
 		
 	}	
 			
-	public static void print(SearchAndDelete li)
+	public static void print(LinkedList li)
 	{
 		Node temp=li.head;
 		while(temp!=null)
@@ -62,12 +62,15 @@ class SearchAndDelete{
 		System.out.println();
 	
 	}
+}
+
+class SearchAndDelete extends LinkedList{
 		
 		
 	
 	public static void main(String[] args)
 	{
-		SearchAndDelete li=new SearchAndDelete();
+		LinkedList li=new LinkedList();
 		li.head=null;
 		insert(li,10);
 		insert(li,15);
