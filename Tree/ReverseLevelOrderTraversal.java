@@ -1,11 +1,12 @@
 class Node 
 	{ 
 		int data; 
-		Node left, right; 
+		Node left;
+		Node right; 
 	
-		Node(int item) 
+		Node(int d) 
 		{ 
-			data = item; 
+			data = d; 
 			left = right; 
 		} 
 	} 
@@ -18,10 +19,10 @@ class BinaryTree
 		int i; 
 		for (i = h; i >= 1; i--) 
 		{ 
-			printGivenLevel(node, i); 
+			printLevel(node, i); 
 		} 
 	} 
-	void printGivenLevel(Node node, int level) 
+	void printLevel(Node node, int level) 
 	{ 
 		if (node == null) 
 			return; 
@@ -29,8 +30,8 @@ class BinaryTree
 			System.out.print(node.data + " "); 
 		else if (level > 1) 
 		{ 
-			printGivenLevel(node.left, level - 1); 
-			printGivenLevel(node.right, level - 1); 
+			printLevel(node.left, level - 1); 
+			printLevel(node.right, level - 1); 
 		} 
 	} 
 	int height(Node node) 
@@ -39,12 +40,12 @@ class BinaryTree
 			return 0; 
 		else
 		{ 
-			int lheight = height(node.left); 
-			int rheight = height(node.right); 
-			if (lheight > rheight) 
-				return (lheight + 1); 
+			int lh = height(node.left); 
+			int rh = height(node.right); 
+			if (lh > rh) 
+				return (lh + 1); 
 			else
-				return (rheight + 1); 
+				return (rh + 1); 
 		} 
 	}
 	
@@ -52,15 +53,15 @@ class BinaryTree
 class ReverseLevelOrderTraversal{
 	public static void main(String args[]) 
 	{ 
-		BinaryTree tree = new BinaryTree(); 
-		tree.root = new Node(1); 
-		tree.root.left = new Node(2); 
-		tree.root.right = new Node(3); 
-		tree.root.left.left = new Node(4);
-		tree.root.right.left = new Node(6); 
-		tree.root.left.right = new Node(5); 
-		tree.root.right.right = new Node(7);
-		System.out.println("Reverse Level Order traversal of binary tree is : "); 
-		tree.reverseLevelOrder(tree.root); 
+		BinaryTree t1 = new BinaryTree(); 
+		t1.root = new Node(1); 
+		t1.root.left = new Node(2); 
+		t1.root.right = new Node(3); 
+		t1.root.left.left = new Node(4);
+		t1.root.right.left = new Node(6); 
+		t1.root.left.right = new Node(5); 
+		t1.root.right.right = new Node(7);
+		System.out.println("Reverse Level Order traversal of binary t1 is : "); 
+		t1.reverseLevelOrder(t1.root); 
 	} 
 }
